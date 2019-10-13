@@ -1,0 +1,11 @@
+{
+  "name": "eslint-auditor",
+  "version": "1.0.0",
+  "description": "This package audits the eslint rules in a repo and the number of violations made",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sourav Shaw",
+  "license": "ISC"
+}
