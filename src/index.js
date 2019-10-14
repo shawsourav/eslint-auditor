@@ -1,5 +1,7 @@
+/* eslint-disable */
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
 const getDirectories = dir => {
     try {
         const files = fs.readdirSync(dir);
@@ -18,7 +20,7 @@ const getDirectories = dir => {
 
 const getRules = dir => {
     if (fs.existsSync(path.resolve(dir, '.eslintrc.js'))) {
-        console.log(path.resolve(dir, '.eslintrc.js'));
+        console.log(chalk.green(path.resolve(dir, '.eslintrc.js')));
         const { rules } = require(path.resolve(dir, '.eslintrc.js'));
         return rules ? Object.keys(rules).map(rule => ({ count: 0, files: [], rule })) : [];
     }
@@ -35,7 +37,7 @@ const iterator = (dir, rules) => {
     });
     return rules;
 };
-
+console.log(chalk.blue('Printing available eslint config files in the repo...'));
 const rules = iterator(__dirname, []);
 
 const getViolations = dir => {
